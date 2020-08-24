@@ -7,6 +7,7 @@ const dbConn = require("./../dbconn.js");
 
 router.get("/projects", function (req, res, next) {
   let sqlQuery = "SELECT * FROM projects";
+
   dbConn.connection.query(sqlQuery, function (err, result) {
     if (err) {
       return res.send({ status: 400, error: err });
@@ -17,6 +18,13 @@ router.get("/projects", function (req, res, next) {
 
 router.post("/projects/add", function (req, res, next) {
   let sqlQuery = `insert into projects(name, description, project_manager) values(${req.body.name}, ${req.body.description}, ${req.body.project_manager}`;
+
+  dbConn.connection.query(sqlQuery, function (err, result) {
+    if (err) {
+      return res.send({ status: 400, error: err });
+    }
+    return res.send({ status: 200, data: result.rows });
+  });
 });
 
 module.exports = router;
