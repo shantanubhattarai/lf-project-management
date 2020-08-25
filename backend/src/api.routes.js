@@ -8,7 +8,7 @@ const authenticate = require("./middleware/authenticate");
 const authorize = require("./middleware/authorize");
 
 router.use("/auth", authRoute);
-router.use("/", authenticate, projectRoute);
+router.use("/projects", authenticate, projectRoute);
 router.use("/admin", authenticate, authorize([1]), adminRoute);
 // router.use("/task", authenticate, authorize([1, 2, 3]), taskRoute);
 

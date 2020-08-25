@@ -5,6 +5,7 @@ const config = require("./configs/config");
 const apiRoute = require("./api.routes");
 const dbConn = require("./dbconn");
 const server = express();
+const errorHandler = require("./middleware/errorHandler");
 
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
@@ -13,7 +14,7 @@ server.use(cors());
 dbConn.connection.connect().catch((err) => console.log(err));
 
 server.use("/api", apiRoute);
-
+server.use(errorHandler);
 server.use(function (req, res, next) {
   next({
     msg: "Not Found",
