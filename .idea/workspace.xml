@@ -20,12 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8279bcdf-dca9-4bde-b091-f88b5ba79fcd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/middleware/errorHandler.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/api.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/api.routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/project.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/project.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/task.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/task.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/serviceWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +45,9 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1gXFFrTVJpF21MTyt6I7CGjydtc" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -74,7 +80,8 @@
       <workItem from="1598276159248" duration="1932000" />
       <workItem from="1598283240361" duration="584000" />
       <workItem from="1598294270460" duration="2188000" />
-      <workItem from="1598331691562" duration="7828000" />
+      <workItem from="1598331691562" duration="8105000" />
+      <workItem from="1598345798938" duration="3151000" />
     </task>
     <servers />
   </component>
@@ -91,16 +98,21 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="692" y="162" key="#JavaScript" timestamp="1598258779521">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="692" y="162" key="#JavaScript/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598258779521" />
-    <state x="733" y="338" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598255689634">
+    <state x="733" y="338" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598346493450">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="733" y="338" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598255689634" />
+    <state x="733" y="338" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598346493450" />
+    <state x="689" y="285" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598345926238">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="689" y="285" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598345926238" />
     <state x="657" y="152" width="1000" height="726" key="SettingsEditor" timestamp="1598254763262">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
