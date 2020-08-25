@@ -5,6 +5,10 @@ const authorize = require("../middleware/authorize");
 
 router.get("/", function (req, res, next) {
   let sqlQuery = `select * from project_users where user_id = ${req.user.id}`;
+  if (req.user.role === 1) {
+    sqlQuery = `select * from project_users`;
+  }
+
   dbConn.connection.query(sqlQuery, function (err, result) {
     if (err) {
       next(err);
@@ -15,11 +19,9 @@ router.get("/", function (req, res, next) {
       let projects;
       projects = result.rows.map((row) => row.project_id);
       let projectsString = projects.toString();
-
       let sqlQuery = `select * from projects where id in (${projectsString})`;
       dbConn.connection.query(sqlQuery, function (err, detailResult) {
-        console.log(err);
-        res.send(detailResult.rows);
+        return res.send({ status: 200, data: detailResult.rows });
       });
     } else {
       res.send({ message: "No projects associated with user" });
@@ -73,14 +75,37 @@ router.delete("/remove-user", authorize([1, 2]), function (req, res, next) {
   });
 });
 
-router.delete("/remove", authorize([1, 2]), function (req, res, next) {
+router.delete("/remove", authorize([1]), function (req, res, next) {
   let sqlQuery = `delete from project_users where project_id=${req.body.project}`;
   dbConn.connection.query(sqlQuery, function (err, result) {
     if (err) next(err);
     let sqlQuery = `update projects set is_deleted='t' where id=${req.body.project}`;
     dbConn.connection.query(sqlQuery, function (err, result) {
       if (err) next(err);
-      res.send({ status: 200, message: "User removed successfully" });
+      res.send({ status: 200, message: "Project removed successfully" });
+    });
+  });
+});
+
+router.post("/add", authorize([1]), function (req, res, next) {
+  //todo: check if project manager is already assigned
+
+  let sqlQuery = `insert into projects(name, description, project_manager) values('${req.body.name}', '${req.body.description}', ${req.body.project_manager})`;
+
+  dbConn.connection.query(sqlQuery, function (err, result) {
+    if (err) {
+      console.log(err);
+      return res.send({ status: 400, error: err });
+    }
+
+    let sqlQuery = `insert into project_users values ((SELECT MAX(id) FROM projects), ${req.user.id})`;
+
+    dbConn.connection.query(sqlQuery, function (err, result) {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      return res.send({ status: 200, data: result.rows });
     });
   });
 });

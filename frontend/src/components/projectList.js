@@ -1,16 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as adminActions from "../actions/adminActions";
-import * as httpUtils from "../utils/http";
-import * as config from "../configs/appconfig";
+
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 
 class ProjectList extends React.Component {
   componentDidMount() {
-    httpUtils
-      .get(config.endPoints.adminProjects)
-      .then((response) => this.props.setProjects(response));
+    this.props.setProjects();
   }
 
   render() {
@@ -34,8 +31,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setProjects: (projects) => {
-      dispatch(adminActions.showProjects(projects));
+    setProjects: () => {
+      dispatch(adminActions.showProjects());
     },
   };
 }
