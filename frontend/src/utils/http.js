@@ -11,3 +11,15 @@ export function get(endpoint) {
     .then((response) => response.data)
     .catch((error) => console.log(error));
 }
+
+export function post(endpoint, body) {
+  return fetch(`${config.BASE_URL}${endpoint}`, {
+    headers: {
+      token:
+        "eyJhbGciOiJIUzI1NiJ9.eyJmaXJzdF9uYW1lIjoiQWRtaW4iLCJsYXN0X25hbWUiOiJBZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkNVZYa1V3a0ZiN3RpeVYyMXFacnNaLmJkOUpicm5NRlc2S0tkanZBR1VjYUpBMHgxdWwxMFciLCJyb2xlIjoxLCJpc19kZWxldGVkIjpmYWxzZSwidXNlcm5hbWUiOiJhZG1pbiIsImlkIjoxfQ.LkJlPWYtWa_1dqc2dolN8T05Bi0JHns7-lywPkIMfwo",
+    },
+    body: JSON.stringify(body),
+  })
+    .then((response) => response.json())
+    .catch((error) => console.log(error));
+}

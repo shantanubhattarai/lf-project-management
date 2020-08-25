@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 
-import adminReducer from "./adminReducer";
+import projectReducer from "./projectReducer";
+import authReducer from "./authReducer";
 
 const reducer = combineReducers({
-  admin: adminReducer,
+  project: projectReducer,
+  auth: authReducer,
 });
 
 export default reducer;

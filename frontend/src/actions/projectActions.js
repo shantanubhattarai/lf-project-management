@@ -3,7 +3,7 @@ import * as config from "../configs/appconfig";
 
 export const SHOW_PROJECTS = "SHOW_PROJECTS";
 
-export function showProjects(projects) {
+export function showProjects() {
   return function action(dispatch) {
     return httpUtils
       .get(config.endPoints.projects)

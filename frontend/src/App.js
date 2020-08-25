@@ -1,20 +1,21 @@
 import React from "react";
-import "./App.css";
 import ProjectList from "./components/projectList";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Login from "./pages/login";
 
 function App() {
   return (
-    <div className="App">
-      <div className="container-fluid">
-        <Router>
-          <Switch>
-            <Route path="/admin">
-              <ProjectList />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
+    <div className="container-fluid">
+      <Router>
+        <Switch>
+          <Route path="/admin">
+            <ProjectList />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

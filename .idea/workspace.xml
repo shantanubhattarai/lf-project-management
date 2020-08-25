@@ -21,13 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8279bcdf-dca9-4bde-b091-f88b5ba79fcd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/api.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/api.routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/admin.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/admin.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/project.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/project.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/actions/adminActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/adminActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/adminActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/projectActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/projectList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/projectList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/configs/appconfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/configs/appconfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/adminReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/projectReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/http.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +59,7 @@
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\lf-project-management\backend\node_modules\prettier" />
     <property name="run.prettier.on.save" value="true" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -84,6 +85,8 @@
       <workItem from="1598349881205" duration="1138000" />
       <workItem from="1598351148652" duration="243000" />
       <workItem from="1598351544354" duration="1023000" />
+      <workItem from="1598365423076" duration="463000" />
+      <workItem from="1598367669955" duration="1100000" />
     </task>
     <servers />
   </component>
@@ -107,10 +110,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="692" y="162" key="#JavaScript/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598258779521" />
-    <state x="733" y="338" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598346493450">
+    <state x="733" y="338" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598365540548">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="733" y="338" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598346493450" />
+    <state x="733" y="338" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598365540548" />
     <state x="689" y="285" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598345926238">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -119,9 +122,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="657" y="152" width="1000" height="726" key="SettingsEditor/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598254763262" />
-    <state x="623" y="235" key="search.everywhere.popup" timestamp="1598252949755">
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1598365774796">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="235" key="search.everywhere.popup/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598252949755" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598365774796" />
   </component>
 </project>

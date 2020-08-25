@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as adminActions from "../actions/adminActions";
+import * as projectActions from "../actions/projectActions";
 
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
@@ -25,14 +25,14 @@ class ProjectList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    projects: state.admin.projects,
+    projects: state.project.projects,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     setProjects: () => {
-      dispatch(adminActions.showProjects());
+      dispatch(projectActions.showProjects());
     },
   };
 }
