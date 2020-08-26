@@ -5,6 +5,7 @@ import { Link, Redirect } from "react-router-dom";
 
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
+import Controls from "./controls";
 
 class ProjectList extends React.Component {
   componentDidMount() {
@@ -24,6 +25,7 @@ class ProjectList extends React.Component {
     }
     return (
       <div>
+        {JSON.parse(localStorage.getItem("user")).id ? <Controls /> : ""}
         <ListGroup>
           {Object.values(this.props.projects).map((project) => (
             <ListGroupItem key={project.id}>

@@ -14,6 +14,8 @@ function projectReducer(state = INITIAL_STATE, action) {
       return { ...state, currentProject: action.payload };
     case projectActions.SHOW_PROJECT_TASKS:
       return { ...state, tasks: action.payload };
+    case projectActions.ADD_PROJECT:
+      return { ...state };
     default:
       return state;
   }

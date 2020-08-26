@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { connect } from "react-redux";
 import * as authActions from "../actions/authActions";
 import { Redirect } from "react-router-dom";
-
+import { Alert } from "react-bootstrap";
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -28,17 +28,25 @@ class Login extends React.Component {
   };
 
   render() {
-    if (this.props.redirect) return <Redirect to="/projects" />;
+    if (this.props.redirect && this.props.redirect !== "")
+      return <Redirect to={this.props.redirect} />;
     return (
       <div className="card">
         <div className="card-header">Login</div>
         <div className="card-body">
+          {this.props.error ? (
+            <Alert variant="danger">{this.props.error}</Alert>
+          ) : (
+            ""
+          )}
+
           <Form onSubmit={this.handleLogin}>
             <Form.Group>
               <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
                 onChange={(e) => this.setUsername(e.target.value)}
+                required
               />
             </Form.Group>
             <Form.Group>
@@ -46,6 +54,7 @@ class Login extends React.Component {
               <Form.Control
                 type="password"
                 onChange={(e) => this.setPassword(e.target.value)}
+                required
               />
             </Form.Group>
             <Button variant="primary" type="submit">

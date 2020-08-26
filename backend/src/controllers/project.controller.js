@@ -119,14 +119,14 @@ router.post("/add", authorize([1]), function (req, res, next) {
   //todo: check if project manager is already assigned
 
   let sqlQuery = `insert into projects(name, description, project_manager) values('${req.body.name}', '${req.body.description}', ${req.body.project_manager})`;
-
+  console.log(sqlQuery);
   dbConn.connection.query(sqlQuery, function (err, result) {
     if (err) {
       console.log(err);
       return res.send({ status: 400, error: err });
     }
 
-    let sqlQuery = `insert into project_users values ((SELECT MAX(id) FROM projects), ${req.user.id})`;
+    let sqlQuery = `insert into project_users values ((SELECT MAX(id) FROM projects), ${req.body.project_manager})`;
 
     dbConn.connection.query(sqlQuery, function (err, result) {
       if (err) {

@@ -60,12 +60,12 @@ router.post("/login", function (req, res, next) {
  * @param {{email: string}} email of the user
  * */
 router.post("/create-user", async (req, res, next) => {
-  if (!req.body.roleId) {
+  if (!req.body.role) {
     res.send({ status: 400, message: "role not selected" });
     return;
   }
 
-  if (req.body.roleId === 1) {
+  if (req.body.role === 1) {
     res.send({ status: 400, message: "Admin creation not allowed" });
     return;
   }
@@ -83,11 +83,12 @@ router.post("/create-user", async (req, res, next) => {
     const saltRounds = 10;
     const passwordHash = await bcrypt.hash(req.body.password, saltRounds);
 
-    let sqlQuery = `INSERT INTO users(first_name, last_name, email, password, role, username) VALUES('${req.body.firstName}', '${req.body.lastName}', '${req.body.email}', '${passwordHash}', ${req.body.roleId}, '${req.body.username}');`;
+    let sqlQuery = `INSERT INTO users(first_name, last_name, email, password, role, username) VALUES('${req.body.firstname}', '${req.body.lastname}', '${req.body.email}', '${passwordHash}', ${req.body.role}, '${req.body.username}');`;
+    console.log(sqlQuery);
     dbConn.connection.query(sqlQuery, function (err, result) {
-      if (err) throw err;
+      if (err) next(err);
       if (result) {
-        res.send(result);
+        res.send({ status: 200, message: "User created" });
       }
     });
   } catch (err) {

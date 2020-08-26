@@ -8,4 +8,6 @@ export const endPoints = {
   taskUpdate: "/tasks/update",
   taskUser: "/tasks/user",
   login: "/auth/login",
+  addUser: "/auth/create-user",
+  addProject: "/projects/add",
 };

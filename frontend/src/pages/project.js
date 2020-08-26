@@ -4,7 +4,6 @@ import * as taskActions from "../actions/taskActions";
 import { connect } from "react-redux";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 import ListGroup from "react-bootstrap/ListGroup";
-import { Button } from "react-bootstrap";
 import Task from "../components/task";
 import { Link } from "react-router-dom";
 
@@ -35,16 +34,17 @@ class Project extends React.Component {
                     onClick={(e) => this.props.setCurrentTask(task.id)}
                   >
                     {task.title}
-                    <Link to={`/editTask/${task.id}`}>Edit</Link>
+                    {JSON.parse(localStorage.getItem("user")).id ===
+                      task.assigned_user ||
+                    JSON.parse(localStorage.getItem("user")).role !==
+                      "engineer" ? (
+                      <Link to={`/editTask/${task.id}`}>Edit</Link>
+                    ) : (
+                      ""
+                    )}
                   </ListGroupItem>
                 ))}
               </ListGroup>
-
-              {JSON.parse(localStorage.getItem("user")).role === "admin" ? (
-                <Button>Trial</Button>
-              ) : (
-                ""
-              )}
             </div>
           </div>
           <div className="col-md-6 col-sm-12">
