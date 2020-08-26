@@ -17,6 +17,7 @@ router.post("/login", function (req, res, next) {
 
     if (result.rows.length === 0) {
       res.send({ status: 400, message: "user not found" });
+      return;
     }
 
     bcrypt.compare(req.body.password, result.rows[0].password, function (

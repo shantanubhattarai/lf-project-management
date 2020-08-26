@@ -21,11 +21,21 @@
   <component name="ChangeListManager">
     <list default="true" id="8279bcdf-dca9-4bde-b091-f88b5ba79fcd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/api.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/api.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/project.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/project.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/task.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/task.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/actions/adminActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/projectActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/authActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/projectActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/projectActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/projectList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/projectList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/configs/appconfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/configs/appconfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/adminReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/projectReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/projectReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/projectReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/reducers/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/utils/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/http.js" afterDir="false" />
     </list>
@@ -86,7 +96,11 @@
       <workItem from="1598351148652" duration="243000" />
       <workItem from="1598351544354" duration="1023000" />
       <workItem from="1598365423076" duration="463000" />
-      <workItem from="1598367669955" duration="1100000" />
+      <workItem from="1598367669955" duration="2501000" />
+      <workItem from="1598370347770" duration="1247000" />
+      <workItem from="1598372074927" duration="288000" />
+      <workItem from="1598374113893" duration="8259000" />
+      <workItem from="1598419671664" duration="13856000" />
     </task>
     <servers />
   </component>
@@ -122,9 +136,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="657" y="152" width="1000" height="726" key="SettingsEditor/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598254763262" />
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1598365774796">
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1598422694579">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598365774796" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598422694579" />
   </component>
 </project>

@@ -16,7 +16,7 @@ router.get("/", function (req, res, next) {
       tasks = result.rows.map((row) => row.task_id);
       let tasksString = tasks.toString();
 
-      let sqlQuery = `select * from projects where id in (${tasksString})`;
+      let sqlQuery = `select * from tasks where id in (${tasksString})`;
       dbConn.connection.query(sqlQuery, function (err, detailResult) {
         console.log(err);
         res.send(detailResult.rows);
@@ -27,8 +27,37 @@ router.get("/", function (req, res, next) {
   });
 });
 
+router.post("/", function (req, res, next) {
+  //todo: check if project id is in request]
+  let sqlQuery = `select * from task_users where user_id = ${req.user.id}`;
+  if (req.user.role === 1) {
+    sqlQuery = `select * from task_users`;
+  }
+  dbConn.connection.query(sqlQuery, function (err, result) {
+    if (err) {
+      next(err);
+      return;
+    }
+    if (result.rows.length > 0) {
+      let tasks;
+      tasks = result.rows.map((row) => row.task_id);
+      let tasksString = tasks.toString();
+      let sqlQuery = `select * from tasks where id in (${tasksString}) and project = ${req.body.project_id}`;
+      if (!req.body.project_id)
+        sqlQuery = `select * from tasks where id in (${tasksString})`;
+
+      dbConn.connection.query(sqlQuery, function (err, detailResult) {
+        if (err) console.log(err);
+        res.send({ status: 200, data: detailResult.rows });
+      });
+    } else {
+      res.send({ message: "No task associated with user" });
+    }
+  });
+});
+
 router.post("/add", function (req, res, next) {
-  let sqlQuery = `insert into tasks(title, description, assigned_user, project) values('${req.body.name}', '${req.body.description}', ${req.body.user}, ${req.body.project})`;
+  let sqlQuery = `insert into tasks(title, description, assigned_user, project, deadline) values('${req.body.name}', '${req.body.description}', ${req.body.user}, ${req.body.project}, '${req.body.deadline}')`;
 
   dbConn.connection.query(sqlQuery, function (err, result) {
     if (err) {
@@ -36,7 +65,7 @@ router.post("/add", function (req, res, next) {
       return res.send({ status: 400, error: err });
     }
 
-    let sqlQuery = `insert into task_users values ((SELECT MAX(id) FROM tasks), ${req.user.id}, 'assigned')`;
+    let sqlQuery = `insert into task_users values ((SELECT MAX(id) FROM tasks), ${req.body.user}, 'assigned')`;
 
     dbConn.connection.query(sqlQuery, function (err, result) {
       if (err) {
@@ -63,9 +92,12 @@ router.put("/update", function (req, res, next) {
       });
       return;
     }
-    let sqlQuery = `update task SET title='${req.body.name}', description='${req.body.description}', assigned_user=${req.body.user} where id = ${req.body.id}`;
+    let sqlQuery = `update tasks SET title='${req.body.title}', description='${req.body.description}', assigned_user=${req.body.assignedUser} where id = ${req.body.id}`;
     dbConn.connection.query(sqlQuery, function (err, result) {
-      if (err) next(err);
+      if (err) {
+        next(err);
+        return;
+      }
       res.send({ status: 200, message: "Updated successfully." });
     });
   });
@@ -98,6 +130,59 @@ router.delete("/remove", authorize([1, 2, 3]), function (req, res, next) {
       if (err) next(err);
       res.send({ status: 200, message: "User removed successfully" });
     });
+  });
+});
+
+router.get("/details/:id", function (req, res, next) {
+  let sqlQuery = `select * from task_users where user = ${req.user.id}`;
+  if (req.user.role === 1 || req.user.role === 2)
+    sqlQuery = `select * from task_users`;
+
+  dbConn.connection.query(sqlQuery, function (err, result) {
+    if (err) {
+      next(err);
+      return;
+    }
+
+    if (result.rows.length > 0) {
+      let sqlQuery = `select * from tasks where id = ${req.params.id}`;
+      dbConn.connection.query(sqlQuery, function (err, detailResult) {
+        return res.send({ status: 200, data: detailResult.rows[0] });
+      });
+    } else {
+      res.send({
+        status: 400,
+        data: { message: "Task not associated with user" },
+      });
+    }
+  });
+});
+
+router.get("/user/:id", function (req, res, next) {
+  let sqlQuery = `select * from task_users where user_id = ${req.user.id}`;
+  if (req.user.role === 1 || req.user.role === 2)
+    sqlQuery = `select * from task_users`;
+
+  dbConn.connection.query(sqlQuery, function (err, result) {
+    if (err) {
+      next(err);
+      return;
+    }
+
+    if (result.rows.length > 0) {
+      let sqlQuery = `select * from tasks where id = ${req.params.id}`;
+      dbConn.connection.query(sqlQuery, function (err, detailResult) {
+        let sqlQuery = `select * from users where id = ${detailResult.rows[0].assigned_user}`;
+        dbConn.connection.query(sqlQuery, function (err, userResult) {
+          return res.send({ status: 200, data: userResult.rows[0] });
+        });
+      });
+    } else {
+      res.send({
+        status: 400,
+        data: { message: "Task not associated with user" },
+      });
+    }
   });
 });
 

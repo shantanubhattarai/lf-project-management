@@ -24,7 +24,35 @@ router.get("/", function (req, res, next) {
         return res.send({ status: 200, data: detailResult.rows });
       });
     } else {
-      res.send({ message: "No projects associated with user" });
+      res.send({
+        status: 200,
+        data: { message: "No projects associated with user" },
+      });
+    }
+  });
+});
+
+router.get("/details/:id", function (req, res, next) {
+  let sqlQuery = `select * from project_users where user_id = ${req.user.id}`;
+  if (req.user.role === 1 || req.user.role === 2)
+    sqlQuery = `select * from project_users`;
+
+  dbConn.connection.query(sqlQuery, function (err, result) {
+    if (err) {
+      next(err);
+      return;
+    }
+
+    if (result.rows.length > 0) {
+      let sqlQuery = `select * from projects where id in (${req.params.id})`;
+      dbConn.connection.query(sqlQuery, function (err, detailResult) {
+        return res.send({ status: 200, data: detailResult.rows[0] });
+      });
+    } else {
+      res.send({
+        status: 400,
+        data: { message: "Project not associated with user" },
+      });
     }
   });
 });
