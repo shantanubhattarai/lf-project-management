@@ -10,4 +10,5 @@ export const endPoints = {
   login: "/auth/login",
   addUser: "/auth/create-user",
   addProject: "/projects/add",
+  addTask: "/tasks/add",
 };

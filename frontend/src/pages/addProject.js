@@ -31,7 +31,7 @@ class AddProject extends React.Component {
   render() {
     return (
       <div className="card">
-        <div className="card-header">Add User</div>
+        <div className="card-header">Add Project</div>
         <div className="card-body">
           <Form onSubmit={(e) => this.handleSubmit(e)}>
             <Form.Group>

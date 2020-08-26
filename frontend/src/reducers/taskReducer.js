@@ -25,6 +25,8 @@ function projectReducer(state = INITIAL_STATE, action) {
       return { ...state, comments: action.payload };
     case taskActions.GET_ASSIGNED_USER:
       return { ...state, assignedUser: action.payload };
+    case taskActions.ADD_TASK:
+      return { ...state };
     case taskActions.SET_TITLE:
       return {
         ...state,

@@ -9,6 +9,7 @@ export const SET_TITLE = "SET_TITLE";
 export const SET_DESCRIPTION = "SET_DESCRIPTION";
 export const SET_ASSIGNED_USER = "SET_ASSIGNED_USER";
 export const SET_PROJECT = "SET_PROJECT";
+export const ADD_TASK = "ADD_TASK";
 
 export function showTask(taskId) {
   return (dispatch) => {
@@ -73,5 +74,18 @@ export function updateTask(id, title, description, assignedUser, project) {
           dispatch(showTask(id));
         }
       });
+  };
+}
+
+export function AddTask(body) {
+  return function action(dispatch) {
+    return httpUtils.post(config.endPoints.addTask, body).then((response) => {
+      if (response.status === 400) {
+        console.log(response.message, response.error);
+      } else if (response.status === 200) {
+        console.log(response.message);
+        dispatch({ type: ADD_TASK });
+      }
+    });
   };
 }

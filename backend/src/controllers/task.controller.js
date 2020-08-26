@@ -57,7 +57,7 @@ router.post("/", function (req, res, next) {
 });
 
 router.post("/add", function (req, res, next) {
-  let sqlQuery = `insert into tasks(title, description, assigned_user, project, deadline) values('${req.body.name}', '${req.body.description}', ${req.body.user}, ${req.body.project}, '${req.body.deadline}')`;
+  let sqlQuery = `insert into tasks(title, description, assigned_user, project) values('${req.body.title}', '${req.body.description}', ${req.body.assigned_user}, ${req.body.project})`;
 
   dbConn.connection.query(sqlQuery, function (err, result) {
     if (err) {
@@ -65,7 +65,7 @@ router.post("/add", function (req, res, next) {
       return res.send({ status: 400, error: err });
     }
 
-    let sqlQuery = `insert into task_users values ((SELECT MAX(id) FROM tasks), ${req.body.user}, 'assigned')`;
+    let sqlQuery = `insert into task_users values ((SELECT MAX(id) FROM tasks), ${req.body.assigned_user}, 'assigned')`;
 
     dbConn.connection.query(sqlQuery, function (err, result) {
       if (err) {
