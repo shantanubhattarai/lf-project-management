@@ -21,12 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8279bcdf-dca9-4bde-b091-f88b5ba79fcd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/task.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/task.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/actions/taskActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/taskActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/configs/appconfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/configs/appconfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/addProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/addProject.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/addTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/addTask.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/taskReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/taskReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/editTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/editTask.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +50,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\lf-project-management\backend\node_modules\prettier" />
     <property name="run.prettier.on.save" value="true" />
@@ -61,6 +58,9 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\lf-project-management\backend" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\lf-project-management\backend\src" />
     </key>
@@ -93,6 +93,7 @@
       <workItem from="1598448196862" duration="4724000" />
       <workItem from="1598454810035" duration="430000" />
       <workItem from="1598460318452" duration="1247000" />
+      <workItem from="1598506639292" duration="3841000" />
     </task>
     <servers />
   </component>

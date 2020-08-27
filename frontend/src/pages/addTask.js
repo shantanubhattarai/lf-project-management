@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import * as taskActions from "../actions/taskActions";
 import { Redirect } from "react-router-dom";
+import * as projectActions from "../actions/projectActions";
 
 class AddTask extends React.Component {
   constructor(props) {
@@ -13,6 +14,10 @@ class AddTask extends React.Component {
       assigned_user: "",
       project: "",
     };
+  }
+
+  componentDidMount() {
+    this.props.setProjects();
   }
 
   handleTitleChange = (value) => {
@@ -34,8 +39,12 @@ class AddTask extends React.Component {
   };
 
   render() {
+    console.log(this.props.projects);
     if (this.props.redirect && this.props.redirect !== "")
       return <Redirect to={this.props.redirect} />;
+    if (!this.props.projects) {
+      return <div>Loading...</div>;
+    }
     return (
       <div className="card">
         <div className="card-header">Add Task</div>
@@ -68,10 +77,15 @@ class AddTask extends React.Component {
             <Form.Group>
               <Form.Label>Project</Form.Label>
               <Form.Control
-                required
-                value={this.state.password}
+                as="select"
                 onChange={(e) => this.handleProjectChange(e.target.value)}
-              />
+              >
+                {this.props.projects.map((project) => (
+                  <option key={project.id} value={project.id}>
+                    {project.name}
+                  </option>
+                ))}
+              </Form.Control>
             </Form.Group>
             <Button type="submit">Add Task</Button>
           </Form>
@@ -81,12 +95,21 @@ class AddTask extends React.Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    projects: state.project.projects,
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     addTask: (body) => {
       dispatch(taskActions.AddTask(body));
     },
+    setProjects: () => {
+      dispatch(projectActions.showProjects());
+    },
   };
 }
 
-export default connect(null, mapDispatchToProps)(AddTask);
+export default connect(mapStateToProps, mapDispatchToProps)(AddTask);

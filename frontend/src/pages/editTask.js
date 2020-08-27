@@ -37,6 +37,7 @@ class EditTask extends React.Component {
 
   render() {
     if (!this.props.task.id) return <div>Loading..</div>;
+
     return (
       <div>
         <Form onSubmit={(e) => this.handleFormSubmit(e)}>
@@ -66,6 +67,7 @@ class EditTask extends React.Component {
             <Form.Control
               onChange={(e) => this.handleProjectChange(e.target.value)}
               value={this.props.task.project}
+              required
             />
           </Form.Group>
           <Button type="submit">Update</Button>
@@ -79,6 +81,7 @@ function mapStateToProps(state) {
   return {
     task: state.task.currentEditTaskDetails,
     assignedUser: state.task.assignedUser,
+    projects: state.project.projects,
   };
 }
 
