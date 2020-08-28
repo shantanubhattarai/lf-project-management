@@ -60,6 +60,9 @@ function projectReducer(state = INITIAL_STATE, action) {
           project: action.payload,
         },
       };
+    case taskActions.EMPTY_TASK: {
+      return { ...state, currentTask: {} };
+    }
     case authActions.LOGOUT:
       return { ...INITIAL_STATE };
     default:

@@ -22,13 +22,18 @@
     <list default="true" id="8279bcdf-dca9-4bde-b091-f88b5ba79fcd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/project.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/project.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/task.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/task.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/actions/projectActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/projectActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/controls.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/controls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/taskActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/taskActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/projectList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/projectList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/task.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/configs/appconfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/configs/appconfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/addTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/addTask.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/project.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/project.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/reducers/projectReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/projectReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/reducers/taskReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/taskReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/http.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +113,11 @@
       <workItem from="1598527541566" duration="2967000" />
       <workItem from="1598593677226" duration="109000" />
       <workItem from="1598594419379" duration="38000" />
+      <workItem from="1598597043390" duration="219000" />
+      <workItem from="1598600010526" duration="203000" />
+      <workItem from="1598600305270" duration="2178000" />
+      <workItem from="1598602604760" duration="177000" />
+      <workItem from="1598606135833" duration="121000" />
     </task>
     <servers />
   </component>

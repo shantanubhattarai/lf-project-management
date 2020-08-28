@@ -25,6 +25,8 @@ function projectReducer(state = INITIAL_STATE, action) {
       return { ...state, message: action.payload };
     case authActions.LOGOUT:
       return { ...INITIAL_STATE };
+    case projectActions.DELETE_PROJECT:
+      return { ...state, message: action.payload };
     default:
       return state;
   }

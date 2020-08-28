@@ -13,4 +13,6 @@ export const endPoints = {
   addTask: "/tasks/add",
   users: "/projects/listUsers",
   assignUser: "/projects/add-user",
+  removeProject: "/projects/remove",
+  removeTask: "/tasks/remove",
 };

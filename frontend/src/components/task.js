@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 class Task extends React.Component {
   render() {
-    if (!this.props.assignedUser.id)
+    if (!this.props.assignedUser || !this.props.assignedUser.id)
       if (this.props.task.id) this.props.getAssignedUser(this.props.task.id);
     if (!this.props.task.id) {
       return <div>No task selected</div>;

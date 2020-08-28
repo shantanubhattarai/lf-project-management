@@ -120,13 +120,15 @@ router.delete("/remove-user", authorize([1, 2]), function (req, res, next) {
 });
 
 router.delete("/remove", authorize([1]), function (req, res, next) {
-  let sqlQuery = `delete from project_users where project_id=${req.body.project}`;
+  let sqlQuery = `delete from project_users where project_id=${req.body.projectId}`;
+  console.log(sqlQuery);
   dbConn.connection.query(sqlQuery, function (err, result) {
     if (err) {
       next(err);
       return;
     }
-    let sqlQuery = `update projects set is_deleted='t' where id=${req.body.project}`;
+    let sqlQuery = `delete from projects where id=${req.body.projectId}`;
+    console.log(sqlQuery);
     dbConn.connection.query(sqlQuery, function (err, result) {
       if (err) {
         next(err);

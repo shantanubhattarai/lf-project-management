@@ -39,7 +39,6 @@ class AddTask extends React.Component {
   };
 
   render() {
-    console.log(this.props.projects);
     if (this.props.redirect && this.props.redirect !== "")
       return <Redirect to={this.props.redirect} />;
     if (!this.props.projects) {
@@ -80,6 +79,9 @@ class AddTask extends React.Component {
                 as="select"
                 onChange={(e) => this.handleProjectChange(e.target.value)}
               >
+                <option disabled hidden selected>
+                  Select a Project
+                </option>
                 {this.props.projects.map((project) => (
                   <option key={project.id} value={project.id}>
                     {project.name}

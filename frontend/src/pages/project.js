@@ -13,6 +13,11 @@ class Project extends React.Component {
     this.props.setTasks(this.props.match.params.id);
   }
 
+  handleDelete = (e, body) => {
+    e.preventDefault();
+    this.props.removeTask(body);
+  };
+
   render() {
     return (
       <div className="col-sm-12">
@@ -39,6 +44,23 @@ class Project extends React.Component {
                     JSON.parse(localStorage.getItem("user")).role !==
                       "engineer" ? (
                       <Link to={`/editTask/${task.id}`}>Edit</Link>
+                    ) : (
+                      ""
+                    )}
+                    {JSON.parse(localStorage.getItem("user")).role !==
+                    "engineer" ? (
+                      <a
+                        href="#"
+                        className="float-right btn btn-danger"
+                        onClick={(e) =>
+                          this.handleDelete(e, {
+                            taskId: task.id,
+                            projectId: this.props.project.id,
+                          })
+                        }
+                      >
+                        Delete
+                      </a>
                     ) : (
                       ""
                     )}
@@ -73,6 +95,9 @@ function mapDispatchToProps(dispatch) {
     },
     setCurrentTask: (taskId) => {
       dispatch(taskActions.showTask(taskId));
+    },
+    removeTask: (body) => {
+      dispatch(projectActions.removeTask(body));
     },
   };
 }

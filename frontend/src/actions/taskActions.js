@@ -1,7 +1,7 @@
 import * as httpUtils from "../utils/http";
 import * as config from "../configs/appconfig";
 
-export const SHOW_TASK = "SHOW_PROJECTS";
+export const SHOW_TASK = "SHOW_TASK";
 export const SHOW_TASK_COMMENTS = "SHOW_TASK_COMMENTS";
 export const GET_ASSIGNED_USER = "GET_ASSIGNED_USER";
 export const SET_EDIT_TASK_DETAILS = "SET_EDIT_TASK_DETAILS";
@@ -10,6 +10,7 @@ export const SET_DESCRIPTION = "SET_DESCRIPTION";
 export const SET_ASSIGNED_USER = "SET_ASSIGNED_USER";
 export const SET_PROJECT = "SET_PROJECT";
 export const ADD_TASK = "ADD_TASK";
+export const EMPTY_TASK = "EMPTY_TASK";
 
 export function showTask(taskId) {
   return (dispatch) => {
