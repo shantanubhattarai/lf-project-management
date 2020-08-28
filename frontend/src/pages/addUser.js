@@ -17,6 +17,10 @@ class AddUser extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.getRoles();
+  }
+
   handleFirstNameChange = (value) => {
     this.setState({ firstname: value });
   };
@@ -48,6 +52,8 @@ class AddUser extends React.Component {
       <div className="card">
         <div className="card-header">Add User</div>
         <div className="card-body">
+          {this.props.message !== "" ? <div>{this.props.message}</div> : ""}
+          {this.props.error !== "" ? <div>{this.props.error}</div> : ""}
           <Form onSubmit={(e) => this.handleSubmit(e)}>
             <Form.Group>
               <Form.Label>First Name</Form.Label>
@@ -94,10 +100,18 @@ class AddUser extends React.Component {
             <Form.Group>
               <Form.Label>Role</Form.Label>
               <Form.Control
-                required
-                value={this.state.role}
+                as="select"
                 onChange={(e) => this.handleRoleChange(e.target.value)}
-              />
+              >
+                <option disabled hidden selected>
+                  Select a Role
+                </option>
+                {this.props.roles.map((role) => (
+                  <option key={role.id} value={role.id}>
+                    {role.role}
+                  </option>
+                ))}
+              </Form.Control>
             </Form.Group>
             <Button type="submit">Add User</Button>
           </Form>
@@ -107,12 +121,23 @@ class AddUser extends React.Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    roles: state.auth.roles,
+    message: state.auth.message,
+    error: state.auth.error,
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     addUser: (body) => {
       dispatch(authActions.AddUser(body));
     },
+    getRoles: () => {
+      dispatch(authActions.getRoles());
+    },
   };
 }
 
-export default connect(null, mapDispatchToProps)(AddUser);
+export default connect(mapStateToProps, mapDispatchToProps)(AddUser);

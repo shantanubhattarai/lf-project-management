@@ -173,4 +173,15 @@ router.get("/listUsers", function (req, res, next) {
   });
 });
 
+router.get("/project-managers", function (req, res, next) {
+  let sqlQuery = `select * from users WHERE role=2`;
+  dbConn.connection.query(sqlQuery, function (err, userResult) {
+    if (err) {
+      next(err);
+      return;
+    }
+    return res.send({ status: 200, data: userResult.rows });
+  });
+});
+
 module.exports = router;

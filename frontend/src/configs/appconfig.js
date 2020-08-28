@@ -15,4 +15,7 @@ export const endPoints = {
   assignUser: "/projects/add-user",
   removeProject: "/projects/remove",
   removeTask: "/tasks/remove",
+  getRoles: "/auth/roles",
+  projectManagers: "/projects/project-managers",
+  assignableUsers: "/tasks/assignable-users",
 };

@@ -13,7 +13,10 @@ router.post("/login", function (req, res, next) {
   let sqlQuery = `SELECT * FROM users WHERE username = '${req.body.username}' OR email = '${req.body.email}'`;
 
   dbConn.connection.query(sqlQuery, function (err, result) {
-    if (err) next(err);
+    if (err) {
+      next(err);
+      return;
+    }
 
     if (result.rows.length === 0) {
       res.send({ status: 400, message: "user not found" });
@@ -24,6 +27,10 @@ router.post("/login", function (req, res, next) {
       err,
       comparisonResult
     ) {
+      if (err) {
+        next(err);
+        return;
+      }
       if (!comparisonResult) {
         res.send({ status: 400, message: "wrong password" });
         return;
@@ -86,7 +93,10 @@ router.post("/create-user", async (req, res, next) => {
     let sqlQuery = `INSERT INTO users(first_name, last_name, email, password, role, username) VALUES('${req.body.firstname}', '${req.body.lastname}', '${req.body.email}', '${passwordHash}', ${req.body.role}, '${req.body.username}');`;
     console.log(sqlQuery);
     dbConn.connection.query(sqlQuery, function (err, result) {
-      if (err) next(err);
+      if (err) {
+        next(err);
+        return;
+      }
       if (result) {
         res.send({ status: 200, message: "User created" });
       }
@@ -94,6 +104,18 @@ router.post("/create-user", async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+});
+
+router.get("/roles", function (req, res, next) {
+  let sqlQuery = `SELECT * FROM roles`;
+
+  dbConn.connection.query(sqlQuery, function (err, result) {
+    if (err) {
+      next(err);
+      return;
+    }
+    res.send({ status: 200, data: result.rows });
+  });
 });
 
 module.exports = router;

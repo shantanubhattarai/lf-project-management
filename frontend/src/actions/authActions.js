@@ -6,6 +6,7 @@ export const REDIRECT = "REDIRECT";
 export const ERROR = "ERROR";
 export const LOGOUT = "LOGOUT";
 export const ADD_USER = "ADD_USER";
+export const GET_ROLES = "GET_ROLES";
 
 export function Login(username, password) {
   return function action(dispatch) {
@@ -17,7 +18,7 @@ export function Login(username, password) {
         } else if (response.status === 200) {
           localStorage.setItem("authToken", response.token);
           localStorage.setItem("user", JSON.stringify({ ...response }));
-          dispatch({ type: LOGIN, payload: { ...response } });
+          dispatch({ type: LOGIN, payload: response.message });
           dispatch(Redirect("/projects"));
           window.location.reload(false);
         }
@@ -33,7 +34,7 @@ export function AddUser(body) {
         if (response.status === 400) {
           dispatch(Error(response.message));
         } else if (response.status === 200) {
-          dispatch({ type: ADD_USER });
+          dispatch({ type: ADD_USER, payload: response.message });
         }
       });
   };
@@ -52,4 +53,16 @@ export function Error(error) {
 
 export function Redirect(value) {
   return { type: REDIRECT, payload: value };
+}
+
+export function getRoles() {
+  return function action(dispatch) {
+    return httpUtils.get(config.endPoints.getRoles).then((response) => {
+      if (response.status === 400) {
+        dispatch(Error(response.message));
+      } else if (response.status === 200) {
+        dispatch({ type: GET_ROLES, payload: response.data });
+      }
+    });
+  };
 }

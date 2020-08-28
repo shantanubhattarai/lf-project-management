@@ -18,6 +18,7 @@ class AddTask extends React.Component {
 
   componentDidMount() {
     this.props.setProjects();
+    this.props.getAssignableUsers();
   }
 
   handleTitleChange = (value) => {
@@ -68,10 +69,18 @@ class AddTask extends React.Component {
             <Form.Group>
               <Form.Label>Assigned User</Form.Label>
               <Form.Control
-                required
-                value={this.state.email}
+                as="select"
                 onChange={(e) => this.handleAssignedUserChange(e.target.value)}
-              />
+              >
+                <option disabled hidden selected>
+                  Select a User
+                </option>
+                {this.props.assignableUsers.map((user) => (
+                  <option key={user.id} value={user.id}>
+                    {user.first_name} {user.last_name}
+                  </option>
+                ))}
+              </Form.Control>
             </Form.Group>
             <Form.Group>
               <Form.Label>Project</Form.Label>
@@ -82,7 +91,7 @@ class AddTask extends React.Component {
                 <option disabled hidden selected>
                   Select a Project
                 </option>
-                {this.props.projects.map((project) => (
+                {Object.values(this.props.projects).map((project) => (
                   <option key={project.id} value={project.id}>
                     {project.name}
                   </option>
@@ -100,6 +109,7 @@ class AddTask extends React.Component {
 function mapStateToProps(state) {
   return {
     projects: state.project.projects,
+    assignableUsers: state.task.assignableUsers,
   };
 }
 
@@ -110,6 +120,9 @@ function mapDispatchToProps(dispatch) {
     },
     setProjects: () => {
       dispatch(projectActions.showProjects());
+    },
+    getAssignableUsers: () => {
+      dispatch(taskActions.getAssignableUsers());
     },
   };
 }

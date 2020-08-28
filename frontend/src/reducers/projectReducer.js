@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   currentProject: {},
   tasks: {},
   users: [],
+  projectManagers: [],
   message: "",
 };
 
@@ -27,6 +28,8 @@ function projectReducer(state = INITIAL_STATE, action) {
       return { ...INITIAL_STATE };
     case projectActions.DELETE_PROJECT:
       return { ...state, message: action.payload };
+    case projectActions.GET_PROJECT_MANAGERS:
+      return { ...state, projectManagers: action.payload };
     default:
       return state;
   }

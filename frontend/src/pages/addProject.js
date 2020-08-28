@@ -13,6 +13,10 @@ class AddProject extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.getProjectManagers();
+  }
+
   handleNameChange = (value) => {
     this.setState({ name: value });
   };
@@ -61,6 +65,24 @@ class AddProject extends React.Component {
                 }
               />
             </Form.Group>
+            <Form.Group>
+              <Form.Label>Project Manager</Form.Label>
+              <Form.Control
+                as="select"
+                onChange={(e) =>
+                  this.handleProjectManagerChange(e.target.value)
+                }
+              >
+                <option disabled hidden selected>
+                  Select a Project Manager
+                </option>
+                {this.props.projectManagers.map((projectManager) => (
+                  <option key={[projectManager].id} value={projectManager.id}>
+                    {projectManager.first_name} {projectManager.last_name}
+                  </option>
+                ))}
+              </Form.Control>
+            </Form.Group>
             <Button type="submit">Add Project</Button>
           </Form>
         </div>
@@ -69,12 +91,21 @@ class AddProject extends React.Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    projectManagers: state.project.projectManagers,
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     addProject: (body) => {
       dispatch(projectActions.addProject(body));
     },
+    getProjectManagers: () => {
+      dispatch(projectActions.getProjectManagers());
+    },
   };
 }
 
-export default connect(null, mapDispatchToProps)(AddProject);
+export default connect(mapStateToProps, mapDispatchToProps)(AddProject);

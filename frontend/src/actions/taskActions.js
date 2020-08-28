@@ -11,6 +11,7 @@ export const SET_ASSIGNED_USER = "SET_ASSIGNED_USER";
 export const SET_PROJECT = "SET_PROJECT";
 export const ADD_TASK = "ADD_TASK";
 export const EMPTY_TASK = "EMPTY_TASK";
+export const GET_ASSIGNABLE_USERS = "GET_ASSIGNABLE_USERS";
 
 export function showTask(taskId) {
   return (dispatch) => {
@@ -24,6 +25,17 @@ export function showTask(taskId) {
           return true;
         }
       });
+  };
+}
+export function getAssignableUsers() {
+  return function action(dispatch) {
+    return httpUtils.get(config.endPoints.assignableUsers).then((response) => {
+      if (response.status === 400) {
+        console.log(response.message);
+      } else if (response.status === 200) {
+        dispatch({ type: GET_ASSIGNABLE_USERS, payload: response.data });
+      }
+    });
   };
 }
 

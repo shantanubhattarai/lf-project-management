@@ -12,6 +12,7 @@ const INITIAL_STATE = {
   comments: {},
   assignedUser: {},
   redirect: "",
+  assignableUsers: [],
 };
 
 function projectReducer(state = INITIAL_STATE, action) {
@@ -62,6 +63,9 @@ function projectReducer(state = INITIAL_STATE, action) {
       };
     case taskActions.EMPTY_TASK: {
       return { ...state, currentTask: {} };
+    }
+    case taskActions.GET_ASSIGNABLE_USERS: {
+      return { ...state, assignableUsers: action.payload };
     }
     case authActions.LOGOUT:
       return { ...INITIAL_STATE };

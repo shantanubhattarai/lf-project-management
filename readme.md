@@ -13,3 +13,4 @@
 ## Running:
     - run frontend using yarn start
     - run backend using npm start
+    - credentials: username - admin, password - admin

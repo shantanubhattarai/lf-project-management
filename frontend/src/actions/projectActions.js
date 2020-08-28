@@ -10,6 +10,7 @@ export const GET_PROJECT_USERS = "GET_PROJECT_USERS";
 export const ASSIGN_USER = "ASSIGN_USER";
 export const DELETE_PROJECT = "DELETE_PROJECT";
 export const REMOVE_TASK = "REMOVE_TASK";
+export const GET_PROJECT_MANAGERS = "GET_PROJECT_MANAGERS";
 
 export function getUsers() {
   return function action(dispatch) {
@@ -18,6 +19,18 @@ export function getUsers() {
         console.log(response.message);
       } else if (response.status === 200) {
         dispatch({ type: GET_PROJECT_USERS, payload: response.data });
+      }
+    });
+  };
+}
+
+export function getProjectManagers() {
+  return function action(dispatch) {
+    return httpUtils.get(config.endPoints.projectManagers).then((response) => {
+      if (response.status === 400) {
+        console.log(response.message);
+      } else if (response.status === 200) {
+        dispatch({ type: GET_PROJECT_MANAGERS, payload: response.data });
       }
     });
   };
