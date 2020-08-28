@@ -5,6 +5,34 @@ export const SHOW_PROJECTS = "SHOW_PROJECTS";
 export const SHOW_PROJECT_DETAILS = "SHOW_PROJECT_DETAILS";
 export const SHOW_PROJECT_TASKS = "SHOW_PROJECT_TASKS";
 export const ADD_PROJECT = "ADD_PROJECT";
+export const GET_PROJECT_USERS = "GET_PROJECT_USERS";
+export const ASSIGN_USER = "ASSIGN_USER";
+
+export function getUsers() {
+  return function action(dispatch) {
+    return httpUtils.get(config.endPoints.users).then((response) => {
+      if (response.status === 400) {
+        console.log(response.message);
+      } else if (response.status === 200) {
+        dispatch({ type: GET_PROJECT_USERS, payload: response.data });
+      }
+    });
+  };
+}
+
+export function assignUser(projectId, userId) {
+  return function action(dispatch) {
+    return httpUtils
+      .post(config.endPoints.assignUser, { projectId, userId })
+      .then((response) => {
+        if (response.status === 400) {
+          console.log(response.message);
+        } else if (response.status === 200) {
+          dispatch({ type: ASSIGN_USER, payload: response.message });
+        }
+      });
+  };
+}
 
 export function showProjects() {
   return function action(dispatch) {

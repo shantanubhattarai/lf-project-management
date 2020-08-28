@@ -21,8 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="8279bcdf-dca9-4bde-b091-f88b5ba79fcd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/addTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/addTask.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/editTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/editTask.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/project.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/project.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/projectActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/actions/projectActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/controls.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/controls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/configs/appconfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/configs/appconfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/projectReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/projectReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/taskReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reducers/taskReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +62,7 @@
     <property name="run.prettier.on.save" value="true" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -93,7 +100,14 @@
       <workItem from="1598448196862" duration="4724000" />
       <workItem from="1598454810035" duration="430000" />
       <workItem from="1598460318452" duration="1247000" />
-      <workItem from="1598506639292" duration="3841000" />
+      <workItem from="1598506639292" duration="4094000" />
+      <workItem from="1598510837521" duration="20000" />
+      <workItem from="1598526600118" duration="174000" />
+      <workItem from="1598526823258" duration="8000" />
+      <workItem from="1598527413788" duration="97000" />
+      <workItem from="1598527541566" duration="2967000" />
+      <workItem from="1598593677226" duration="109000" />
+      <workItem from="1598594419379" duration="38000" />
     </task>
     <servers />
   </component>
@@ -121,6 +135,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="733" y="338" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598365540548" />
+    <state x="639" y="274" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1598526710769">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="639" y="274" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080/1920.0.1366.768@0.0.1920.1080" timestamp="1598526710769" />
     <state x="689" y="285" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598345926238">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

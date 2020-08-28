@@ -14,7 +14,7 @@ import EditTask from "./pages/editTask";
 import AddTask from "./pages/addTask";
 import AddUser from "./pages/addUser";
 import AddProject from "./pages/addProject";
-
+import AddUserToProject from "./pages/addUserToProject";
 function App() {
   return (
     <div className="container-fluid">
@@ -40,6 +40,9 @@ function App() {
           </Route>
           <Route path="/addProject">
             <AddProject />
+          </Route>
+          <Route path="/addUserToProject">
+            <AddUserToProject />
           </Route>
           <Route path="/editTask/:id" component={EditTask} />
           <Route path="/project/:id" component={Project} />

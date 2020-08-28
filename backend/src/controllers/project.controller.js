@@ -64,7 +64,10 @@ router.put("/update", authorize([1, 2]), function (req, res, next) {
   }
 
   dbConn.connection.query(sqlQuery, function (err, result) {
-    if (err) next(err);
+    if (err) {
+      next(err);
+      return;
+    }
     if (result.rows.length <= 0) {
       res.send({
         status: 400,
@@ -74,22 +77,32 @@ router.put("/update", authorize([1, 2]), function (req, res, next) {
     }
     let sqlQuery = `update projects SET name='${req.body.name}', description='${req.body.description}' where id = ${req.body.id}`;
     dbConn.connection.query(sqlQuery, function (err, result) {
-      if (err) next(err);
+      if (err) {
+        next(err);
+        return;
+      }
       res.send({ status: 200, message: "Updated successfully." });
     });
   });
 });
 
 router.post("/add-user", authorize([1, 2]), function (req, res, next) {
-  let sqlQuery = `select * from users where id = ${req.body.user}`;
+  let sqlQuery = `select * from users where id = ${req.body.userId}`;
   dbConn.connection.query(sqlQuery, function (err, result) {
-    if (err) next(err);
+    if (err) {
+      next(err);
+      return;
+    }
     if (result.rows.length <= 0) {
       res.send({ status: 400, message: "User not found" });
+      return;
     }
-    let sqlQuery = `insert into project_users values(${req.body.id}, ${req.body.user})`;
+    let sqlQuery = `insert into project_users values(${req.body.projectId}, ${req.body.userId})`;
     dbConn.connection.query(sqlQuery, function (err, result) {
-      if (err) next(err);
+      if (err) {
+        next(err);
+        return;
+      }
       res.send({ status: 200, message: "User added successfully" });
     });
   });
@@ -98,7 +111,10 @@ router.post("/add-user", authorize([1, 2]), function (req, res, next) {
 router.delete("/remove-user", authorize([1, 2]), function (req, res, next) {
   let sqlQuery = `delete from project_users where project_id=${req.body.project} and user_id=${req.body.user}`;
   dbConn.connection.query(sqlQuery, function (err, result) {
-    if (err) next(err);
+    if (err) {
+      next(err);
+      return;
+    }
     res.send({ status: 200, message: "User removed successfully" });
   });
 });
@@ -106,10 +122,16 @@ router.delete("/remove-user", authorize([1, 2]), function (req, res, next) {
 router.delete("/remove", authorize([1]), function (req, res, next) {
   let sqlQuery = `delete from project_users where project_id=${req.body.project}`;
   dbConn.connection.query(sqlQuery, function (err, result) {
-    if (err) next(err);
+    if (err) {
+      next(err);
+      return;
+    }
     let sqlQuery = `update projects set is_deleted='t' where id=${req.body.project}`;
     dbConn.connection.query(sqlQuery, function (err, result) {
-      if (err) next(err);
+      if (err) {
+        next(err);
+        return;
+      }
       res.send({ status: 200, message: "Project removed successfully" });
     });
   });
@@ -119,22 +141,33 @@ router.post("/add", authorize([1]), function (req, res, next) {
   //todo: check if project manager is already assigned
 
   let sqlQuery = `insert into projects(name, description, project_manager) values('${req.body.name}', '${req.body.description}', ${req.body.project_manager})`;
-  console.log(sqlQuery);
   dbConn.connection.query(sqlQuery, function (err, result) {
     if (err) {
-      console.log(err);
-      return res.send({ status: 400, error: err });
+      next(err);
+      return;
     }
 
     let sqlQuery = `insert into project_users values ((SELECT MAX(id) FROM projects), ${req.body.project_manager})`;
 
     dbConn.connection.query(sqlQuery, function (err, result) {
       if (err) {
-        console.log(err);
+        next(err);
         return;
       }
       return res.send({ status: 200, data: result.rows });
     });
+  });
+});
+
+router.get("/listUsers", function (req, res, next) {
+  let sqlQuery = `select * from users WHERE role=4 or role=3`;
+  console.log(sqlQuery);
+  dbConn.connection.query(sqlQuery, function (err, userResult) {
+    if (err) {
+      next(err);
+      return;
+    }
+    return res.send({ status: 200, data: userResult.rows });
   });
 });
 

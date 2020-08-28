@@ -1,4 +1,5 @@
 import * as taskActions from "../actions/taskActions";
+import * as authActions from "../actions/authActions";
 
 const INITIAL_STATE = {
   currentTask: {},
@@ -59,6 +60,8 @@ function projectReducer(state = INITIAL_STATE, action) {
           project: action.payload,
         },
       };
+    case authActions.LOGOUT:
+      return { ...INITIAL_STATE };
     default:
       return state;
   }

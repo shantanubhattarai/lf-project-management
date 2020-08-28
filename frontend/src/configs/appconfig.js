@@ -11,4 +11,6 @@ export const endPoints = {
   addUser: "/auth/create-user",
   addProject: "/projects/add",
   addTask: "/tasks/add",
+  users: "/projects/listUsers",
+  assignUser: "/projects/add-user",
 };

@@ -22,6 +22,15 @@ class Controls extends React.Component {
           ""
         )}
 
+        {JSON.parse(localStorage.getItem("user")).role === "admin" ||
+        JSON.parse(localStorage.getItem("user")).role === "project manager" ? (
+          <Link to="/addUserToProject" className="nav-link">
+            Add User To Project
+          </Link>
+        ) : (
+          ""
+        )}
+
         <Link to="/addTask" className="nav-link">
           Add Task
         </Link>

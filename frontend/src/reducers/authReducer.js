@@ -12,7 +12,7 @@ function authReducer(state = INITIAL_STATE, action) {
     case authActions.REDIRECT:
       return { ...state, redirect: action.payload };
     case authActions.LOGOUT:
-      return { ...state };
+      return { ...INITIAL_STATE };
     case authActions.ERROR:
       return { ...state, error: action.payload };
     case authActions.ADD_USER:

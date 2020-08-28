@@ -1,9 +1,12 @@
 import * as projectActions from "../actions/projectActions";
+import * as authActions from "../actions/authActions";
 
 const INITIAL_STATE = {
   projects: {},
   currentProject: {},
   tasks: {},
+  users: [],
+  message: "",
 };
 
 function projectReducer(state = INITIAL_STATE, action) {
@@ -16,6 +19,12 @@ function projectReducer(state = INITIAL_STATE, action) {
       return { ...state, tasks: action.payload };
     case projectActions.ADD_PROJECT:
       return { ...state };
+    case projectActions.GET_PROJECT_USERS:
+      return { ...state, users: action.payload };
+    case projectActions.ASSIGN_USER:
+      return { ...state, message: action.payload };
+    case authActions.LOGOUT:
+      return { ...INITIAL_STATE };
     default:
       return state;
   }
